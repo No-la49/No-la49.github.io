@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>娃娃收藏展示</title>
+<title>Care Bears Thailand</title>
 
 <style>
 * {
@@ -15,13 +15,13 @@
 
 body {
     font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5e6 100%);
+    background: linear-gradient(135deg, #fff5f0 0%, #f0f8ff 50%, #fff0f5 100%);
     padding: 40px 20px;
     min-height: 100vh;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -33,44 +33,47 @@ body {
 
 .header h1 {
     font-size: 48px;
-    color: #ff6b9d;
+    background: linear-gradient(135deg, #FFB3D9 0%, #A8D8EA 50%, #AA96DA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 10px;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.header p {
-    color: #888;
-    font-size: 16px;
+    text-shadow: none;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
     margin-bottom: 40px;
 }
 
 .card {
-    background: white;
+    background: linear-gradient(135deg, #FFFAF0 0%, #F5F0FF 100%);
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(200, 150, 200, 0.15);
     transition: all 0.3s ease;
     cursor: pointer;
     animation: fadeInUp 0.5s ease-out;
+    border: 2px solid rgba(255, 200, 230, 0.4);
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+    transform: translateY(-12px);
+    box-shadow: 0 15px 40px rgba(200, 150, 200, 0.25);
+    border-color: rgba(255, 179, 217, 0.6);
 }
 
 .card-image {
     width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
+    height: 240px;
+    background: linear-gradient(135deg, #FFE4F5 0%, #E6F3FF 50%, #F0E6FF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
     transition: transform 0.3s ease;
 }
 
@@ -79,40 +82,44 @@ body {
 }
 
 .card-content {
-    padding: 20px;
+    padding: 18px;
 }
 
-.card-tag {
+.card-number {
     display: inline-block;
-    background: linear-gradient(135deg, #ff6b9d, #ff8fab);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
+    background: linear-gradient(135deg, #FFD6E8 0%, #C8E6F5 100%);
+    color: #8B7BA8;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 11px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .card-title {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: #8B7BA8;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
+.card-feature {
+    color: #C794B8;
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
 .card-desc {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    color: #A89DB8;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
 }
 
 .card-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #999;
-    font-size: 12px;
+    color: #D4B8D0;
+    font-size: 11px;
 }
 
 /* 彈窗樣式 */
@@ -124,46 +131,65 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(150, 120, 150, 0.6);
     animation: fadeIn 0.3s ease;
+    overflow-y: auto;
 }
 
 .modal-content {
-    background: white;
-    margin: auto;
-    padding: 20px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #FFFAF0 0%, #F5F0FF 100%);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 25px;
     width: 90%;
-    max-width: 800px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    max-width: 700px;
     animation: slideUp 0.4s ease;
+    border: 2px solid rgba(255, 200, 230, 0.4);
+    box-shadow: 0 15px 50px rgba(150, 120, 150, 0.2);
 }
 
 .modal-image {
     width: 100%;
-    border-radius: 15px;
+    height: 350px;
+    background: linear-gradient(135deg, #FFE4F5 0%, #E6F3FF 50%, #F0E6FF 100%);
+    border-radius: 20px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+}
+
+.modal-number {
+    font-size: 13px;
+    color: #D4B8D0;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .modal-title {
     font-size: 28px;
-    color: #ff6b9d;
-    margin-bottom: 15px;
+    color: #8B7BA8;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
+.modal-feature {
+    color: #C794B8;
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
 .modal-desc {
-    color: #666;
+    color: #A89DB8;
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
 }
 
 .close {
-    color: #aaa;
+    color: #D4B8D0;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -172,7 +198,7 @@ body {
 }
 
 .close:hover {
-    color: #ff6b9d;
+    color: #C794B8;
 }
 
 @keyframes slideDown {
@@ -209,28 +235,29 @@ body {
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translate(-50%, -40%);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
-        transform: translate(-50%, -50%);
+        transform: translateY(0);
     }
 }
 
 /* 響應式設計 */
 @media (max-width: 768px) {
     .header h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
     }
     
     .modal-content {
         width: 95%;
-        padding: 15px;
+        padding: 20px;
+        margin: 20px auto;
     }
 }
 </style>
@@ -240,141 +267,320 @@ body {
 
 <div class="container">
     <div class="header">
-        <h1>🎀 我的娃娃收藏</h1>
-        <p>點擊圖片查看詳細信息</p>
+        <h1>🧸 Care Bears Thailand</h1>
     </div>
 
-    <div class="gallery">
-        <!-- 卡片 1 -->
-        <div class="card" onclick="openModal(0)">
-            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200" alt="吉伊卡哇" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">Chiikawa</div>
-                <div class="card-title">吉伊卡哇</div>
-                <div class="card-desc">超可愛的小夥伴，粉紅配色最療癒</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 卡片 2 -->
-        <div class="card" onclick="openModal(1)">
-            <img src="https://images.unsplash.com/photo-1595777712802-36a59eef63c0?q=80&w=1200" alt="Care Bears" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">Care Bears</div>
-                <div class="card-title">愛心熊</div>
-                <div class="card-desc">經典收藏款，充滿愛與溫暖的象徵</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 卡片 3 -->
-        <div class="card" onclick="openModal(2)">
-            <img src="https://images.unsplash.com/photo-1591553895911-0055eca6402d?q=80&w=1200" alt="Squishmallows" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">Squishmallows</div>
-                <div class="card-title">柔軟娃娃</div>
-                <div class="card-desc">超柔軟舒適，適合擁抱與收藏</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 卡片 4 -->
-        <div class="card" onclick="openModal(3)">
-            <img src="https://images.unsplash.com/photo-1532453290872-5fc82f3602b4?q=80&w=1200" alt="限定款" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">限定款</div>
-                <div class="card-title">隱藏版娃娃</div>
-                <div class="card-desc">特殊活動限定，數量稀少的珍藏</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 卡片 5 -->
-        <div class="card" onclick="openModal(4)">
-            <img src="https://images.unsplash.com/photo-1585647347384-20277cb1529f?q=80&w=1200" alt="粉色夢幻" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">新手必備</div>
-                <div class="card-title">粉色夢幻</div>
-                <div class="card-desc">甜蜜的粉紅色系列，適合房間佈置</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 卡片 6 -->
-        <div class="card" onclick="openModal(5)">
-            <img src="https://images.unsplash.com/photo-1544716278-ca5e3af4abd8?q=80&w=1200" alt="經典系列" class="card-image">
-            <div class="card-content">
-                <div class="card-tag">經典系列</div>
-                <div class="card-title">永恆經典</div>
-                <div class="card-desc">歷久不衰的經典款，代代相傳的寶藏</div>
-                <div class="card-info">
-                    <span>👁️ 點擊查看</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="gallery" id="gallery"></div>
 </div>
 
 <!-- 彈窗 -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modalImage" src="" alt="" class="modal-image">
+        <div class="modal-image" id="modalImage"></div>
+        <div class="modal-number" id="modalNumber"></div>
         <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-feature" id="modalFeature"></div>
         <div class="modal-desc" id="modalDesc"></div>
     </div>
 </div>
 
 <script>
-const dollData = [
+const bearData = [
     {
-        title: "吉伊卡哇",
-        desc: "超可愛的小夥伴！吉伊卡哇以其獨特的萌態和療癒外觀深受喜愛。粉紅色的配色搭配圓圓的身體，簡直是娃娃收藏必備款。每一隻都充滿個性，是房間裝飾的完美選擇。",
-        image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1200"
+        number: 1,
+        name: "Cheer Bear",
+        feature: "桃粉色 / 彩虹圖案",
+        desc: "樂觀開朗，鼓勵大家保持好心情。"
     },
     {
-        title: "愛心熊 Care Bears",
-        desc: "經典收藏款的愛心熊系列！充滿了愛與溫暖的象徵。每隻熊都有獨特的標誌和顏色，代表不同的情感和祝福。無論你是資深收藏家還是新手，愛心熊都是不可或缺的一部分。",
-        image: "https://images.unsplash.com/photo-1595777712802-36a59eef63c0?q=80&w=1200"
+        number: 2,
+        name: "Grumpy Bear",
+        feature: "藍色 / 雨雲圖案",
+        desc: "外表愛抱怨，其實內心溫暖。"
     },
     {
-        title: "柔軟娃娃 Squishmallows",
-        desc: "超級柔軟舒適的Squishmallows系列！無論大小，每一隻都是擁抱的最佳選擇。蓬鬆的手感和可愛的表情，讓它們成為完美的收藏品和陪伴者。很多人都把它們當作最好的朋友！",
-        image: "https://images.unsplash.com/photo-1591553895911-0055eca6402d?q=80&w=1200"
+        number: 3,
+        name: "Funshine Bear",
+        feature: "黃色 / 太陽圖案",
+        desc: "活力滿滿，喜歡帶來歡樂。"
     },
     {
-        title: "隱藏版娃娃",
-        desc: "特殊活動限定款！這些隱藏版娃娃數量稀少，是每個收藏家都夢想擁有的珍寶。它們通常只在特定活動或時間段發售，所以一旦錯過就難以再得到。這是真正的收藏價值所在！",
-        image: "https://images.unsplash.com/photo-1532453290872-5fc82f3602b4?q=80&w=1200"
+        number: 4,
+        name: "Share Bear",
+        feature: "紫色 / 棒棒糖愛心圖案",
+        desc: "喜歡分享與照顧朋友。"
     },
     {
-        title: "粉色夢幻系列",
-        desc: "甜蜜的粉紅色系列娃娃！適合房間佈置，營造溫暖舒適的氛圍。這個系列的每一隻都充滿少女心，是喜歡粉色的收藏家必備的選擇。擺在書架或床邊都能增添可愛度。",
-        image: "https://images.unsplash.com/photo-1585647347384-20277cb1529f?q=80&w=1200"
+        number: 5,
+        name: "Wish Bear",
+        feature: "薄荷綠 / 流星圖案",
+        desc: "幫助大家實現願望與夢想。"
     },
     {
-        title: "永恆經典款",
-        desc: "歷久不衰的經典款娃娃！這些經典款見證了娃娃文化的發展，是代代相傳的寶藏。無論時代如何變化，它們永遠都能打動人心，是所有收藏家心中的永恆經典。",
-        image: "https://images.unsplash.com/photo-1544716278-ca5e3af4abd8?q=80&w=1200"
+        number: 6,
+        name: "Hopeful Heart Bear",
+        feature: "粉白色 / 彩虹愛心圖案",
+        desc: "代表希望與正向力量。"
+    },
+    {
+        number: 7,
+        name: "Grams Bear",
+        feature: "灰色 / 花束圖案",
+        desc: "充滿慈愛與智慧的奶奶熊。"
+    },
+    {
+        number: 8,
+        name: "Grams Bear (New)",
+        feature: "淺藍色 / 花束圖案",
+        desc: "新版奶奶熊，溫柔關懷大家。"
+    },
+    {
+        number: 9,
+        name: "Friend Bear",
+        feature: "橘色 / 花朵圖案",
+        desc: "重視友情，樂於結交朋友。"
+    },
+    {
+        number: 10,
+        name: "Good Luck Bear",
+        feature: "綠色 / 幸運草圖案",
+        desc: "帶來好運與祝福。"
+    },
+    {
+        number: 11,
+        name: "Love-a-Lot Bear",
+        feature: "粉紅色 / 愛心圖案",
+        desc: "象徵愛與關懷。"
+    },
+    {
+        number: 12,
+        name: "Birthday Bear",
+        feature: "奶油黃色 / 生日蛋糕圖案",
+        desc: "喜歡慶祝特別的日子。"
+    },
+    {
+        number: 13,
+        name: "Heart Song Bear",
+        feature: "湖水藍 / 音符愛心圖案",
+        desc: "用音樂傳遞愛與快樂。"
+    },
+    {
+        number: 14,
+        name: "True Heart Bear",
+        feature: "白粉色 / 彩虹愛心圖案",
+        desc: "代表真誠與善良。"
+    },
+    {
+        number: 15,
+        name: "America Cares Bear",
+        feature: "白色 / 星條旗愛心圖案",
+        desc: "象徵關懷與團結。"
+    },
+    {
+        number: 16,
+        name: "Bedtime Bear",
+        feature: "淺藍色 / 月亮星星圖案",
+        desc: "陪伴大家安心入睡。"
+    },
+    {
+        number: 17,
+        name: "Tenderheart Bear",
+        feature: "棕色 / 愛心圖案",
+        desc: "關懷熊家族的領導者。"
+    },
+    {
+        number: 18,
+        name: "Always There Bear",
+        feature: "紅色 / 愛心圖案",
+        desc: "代表陪伴與支持。"
+    },
+    {
+        number: 19,
+        name: "Take Care Bear",
+        feature: "淡紫色 / 愛心圖案",
+        desc: "提醒大家照顧自己與他人。"
+    },
+    {
+        number: 20,
+        name: "Sweet Dreams Bear",
+        feature: "薰衣草紫 / 月亮圖案",
+        desc: "守護甜美夢境。"
+    },
+    {
+        number: 21,
+        name: "Care-a-Lot Bear",
+        feature: "彩虹漸層紫 / 星星彩虹圖案",
+        desc: "象徵關愛王國的精神。"
+    },
+    {
+        number: 22,
+        name: "Do-Your-Best Bear",
+        feature: "萊姆綠 / 風箏圖案",
+        desc: "鼓勵全力以赴。"
+    },
+    {
+        number: 23,
+        name: "Trick-or-Sweet Bear (2021)",
+        feature: "橘色 / 南瓜圖案",
+        desc: "萬聖節主題，調皮可愛。"
+    },
+    {
+        number: 24,
+        name: "Trick-or-Sweet Bear (2022)",
+        feature: "橘色 / 南瓜與帽子圖案",
+        desc: "充滿萬聖節氣氛。"
+    },
+    {
+        number: 25,
+        name: "Spooky Sparkle Bear",
+        feature: "彩虹漸層色 / 愛心圖案",
+        desc: "神秘又閃耀的萬聖節熊。"
+    },
+    {
+        number: 26,
+        name: "Sparkle Heart Bear",
+        feature: "奶白色 / 彩虹愛心圖案",
+        desc: "散發溫暖與希望。"
+    },
+    {
+        number: 27,
+        name: "Christmas Wishes Bear (2021)",
+        feature: "白色 / 聖誕圍巾圖案",
+        desc: "傳遞節日祝福。"
+    },
+    {
+        number: 28,
+        name: "Christmas Wishes Bear (2022)",
+        feature: "淺藍色 / 聖誕帽圍巾圖案",
+        desc: "帶來冬日歡樂。"
+    },
+    {
+        number: 29,
+        name: "Christmas Wishes Bear (2024)",
+        feature: "白色 / 馴鹿造型圖案",
+        desc: "充滿聖誕魔法。"
+    },
+    {
+        number: 30,
+        name: "Laugh-a-Lot Bear",
+        feature: "亮黃色 / 笑臉圖案",
+        desc: "喜歡歡笑與幽默。"
+    },
+    {
+        number: 31,
+        name: "Harmony Bear",
+        feature: "深藍紫色 / 彩虹愛心圖案",
+        desc: "促進和平與和諧。"
+    },
+    {
+        number: 32,
+        name: "Work of Heart Bear",
+        feature: "黃粉色 / 手作愛心圖案",
+        desc: "鼓勵創意與用心付出。"
+    },
+    {
+        number: 33,
+        name: "Perfect Panda",
+        feature: "黑白色 / 熊貓造型",
+        desc: "追求平衡與自信。"
+    },
+    {
+        number: 34,
+        name: "Dream Bright Bear",
+        feature: "淺紫藍色 / 夢幻星星彩虹圖案",
+        desc: "勇敢追逐夢想。"
+    },
+    {
+        number: 35,
+        name: "Sea Friend Bear",
+        feature: "天藍色 / 海洋圖案",
+        desc: "熱愛海洋與冒險。"
+    },
+    {
+        number: 36,
+        name: "Forest Friend Bear",
+        feature: "淺棕色 / 森林圖案",
+        desc: "守護自然與動物朋友。"
+    },
+    {
+        number: 37,
+        name: "Togetherness Bear",
+        feature: "奶白色 / 彩虹愛心圖案",
+        desc: "象徵團結與陪伴。"
+    },
+    {
+        number: 38,
+        name: "Secret Bear",
+        feature: "桃紅色 / 鎖頭愛心圖案",
+        desc: "守護朋友的重要秘密。"
+    },
+    {
+        number: 39,
+        name: "Calming Heart Bear",
+        feature: "淡粉色 / 愛心花朵圖案",
+        desc: "帶來平靜與療癒。"
+    },
+    {
+        number: 40,
+        name: "All My Heart Bear",
+        feature: "粉紅色 / 大愛心圖案",
+        desc: "全心全意表達愛。"
+    },
+    {
+        number: 41,
+        name: "I Care Bear",
+        feature: "薄荷綠 / 彩色愛心圖案",
+        desc: "提醒關心身邊的人。"
+    },
+    {
+        number: 42,
+        name: "Best Friend Bear",
+        feature: "紫色 / 彩虹愛心圖案",
+        desc: "珍惜最好的朋友。"
+    },
+    {
+        number: 43,
+        name: "Sweet Messages Bear",
+        feature: "淡粉色 / 粉紫愛心訊息圖案",
+        desc: "透過溫暖訊息傳遞愛與關懷，2026 情人節限定角色。用真誠的話語傳達愛意與祝福。"
+    },
+    {
+        number: 44,
+        name: "Share Bear Milkshake",
+        feature: "淡紫色 / 奶昔聖代圖案",
+        desc: "用甜蜜與分享帶給朋友幸福感。"
     }
 ];
 
+// 生成卡片
+const gallery = document.getElementById('gallery');
+bearData.forEach((bear, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => openModal(index);
+    
+    card.innerHTML = `
+        <div class="card-image">🧸</div>
+        <div class="card-content">
+            <div class="card-number">#${bear.number}</div>
+            <div class="card-title">${bear.name}</div>
+            <div class="card-feature">${bear.feature}</div>
+            <div class="card-desc">${bear.desc}</div>
+            <div class="card-info">👁️ Click to view</div>
+        </div>
+    `;
+    
+    gallery.appendChild(card);
+});
+
 function openModal(index) {
     const modal = document.getElementById("modal");
-    const data = dollData[index];
-    document.getElementById("modalImage").src = data.image;
-    document.getElementById("modalTitle").textContent = data.title;
-    document.getElementById("modalDesc").textContent = data.desc;
+    const bear = bearData[index];
+    document.getElementById("modalNumber").textContent = `#${bear.number}`;
+    document.getElementById("modalTitle").textContent = bear.name;
+    document.getElementById("modalFeature").textContent = bear.feature;
+    document.getElementById("modalDesc").textContent = bear.desc;
     modal.style.display = "block";
 }
 
