@@ -228,9 +228,8 @@ body {
         opacity: 0;
     }
     to {
-        opacity: 1;
-    }
-}
+        opacity: 
+            
 
 @keyframes slideUp {
     from {
@@ -288,268 +287,67 @@ body {
 <script>
 const bearData = [
     {
-        number: 1,
-        name: "Cheer Bear",
-        feature: "桃粉色 / 彩虹圖案",
-        desc: "樂觀開朗，鼓勵大家保持好心情。"
-    },
-    {
-        number: 2,
-        name: "Grumpy Bear",
-        feature: "藍色 / 雨雲圖案",
-        desc: "外表愛抱怨，其實內心溫暖。"
-    },
-    {
-        number: 3,
-        name: "Funshine Bear",
-        feature: "黃色 / 太陽圖案",
-        desc: "活力滿滿，喜歡帶來歡樂。"
-    },
-    {
-        number: 4,
-        name: "Share Bear",
-        feature: "紫色 / 棒棒糖愛心圖案",
-        desc: "喜歡分享與照顧朋友。"
-    },
-    {
-        number: 5,
-        name: "Wish Bear",
-        feature: "薄荷綠 / 流星圖案",
-        desc: "幫助大家實現願望與夢想。"
-    },
-    {
-        number: 6,
-        name: "Hopeful Heart Bear",
-        feature: "粉白色 / 彩虹愛心圖案",
-        desc: "代表希望與正向力量。"
-    },
-    {
-        number: 7,
-        name: "Grams Bear",
-        feature: "灰色 / 花束圖案",
-        desc: "充滿慈愛與智慧的奶奶熊。"
-    },
-    {
-        number: 8,
-        name: "Grams Bear (New)",
-        feature: "淺藍色 / 花束圖案",
-        desc: "新版奶奶熊，溫柔關懷大家。"
-    },
-    {
-        number: 9,
-        name: "Friend Bear",
-        feature: "橘色 / 花朵圖案",
-        desc: "重視友情，樂於結交朋友。"
-    },
-    {
-        number: 10,
-        name: "Good Luck Bear",
-        feature: "綠色 / 幸運草圖案",
-        desc: "帶來好運與祝福。"
-    },
-    {
-        number: 11,
-        name: "Love-a-Lot Bear",
-        feature: "粉紅色 / 愛心圖案",
-        desc: "象徵愛與關懷。"
-    },
-    {
-        number: 12,
-        name: "Birthday Bear",
-        feature: "奶油黃色 / 生日蛋糕圖案",
-        desc: "喜歡慶祝特別的日子。"
-    },
-    {
-        number: 13,
-        name: "Heart Song Bear",
-        feature: "湖水藍 / 音符愛心圖案",
-        desc: "用音樂傳遞愛與快樂。"
-    },
-    {
-        number: 14,
-        name: "True Heart Bear",
-        feature: "白粉色 / 彩虹愛心圖案",
-        desc: "代表真誠與善良。"
-    },
-    {
-        number: 15,
-        name: "America Cares Bear",
-        feature: "白色 / 星條旗愛心圖案",
-        desc: "象徵關懷與團結。"
-    },
-    {
-        number: 16,
-        name: "Bedtime Bear",
-        feature: "淺藍色 / 月亮星星圖案",
-        desc: "陪伴大家安心入睡。"
-    },
-    {
-        number: 17,
-        name: "Tenderheart Bear",
-        feature: "棕色 / 愛心圖案",
-        desc: "關懷熊家族的領導者。"
-    },
-    {
-        number: 18,
-        name: "Always There Bear",
-        feature: "紅色 / 愛心圖案",
-        desc: "代表陪伴與支持。"
-    },
-    {
-        number: 19,
-        name: "Take Care Bear",
-        feature: "淡紫色 / 愛心圖案",
-        desc: "提醒大家照顧自己與他人。"
-    },
-    {
-        number: 20,
-        name: "Sweet Dreams Bear",
-        feature: "薰衣草紫 / 月亮圖案",
-        desc: "守護甜美夢境。"
-    },
-    {
-        number: 21,
-        name: "Care-a-Lot Bear",
-        feature: "彩虹漸層紫 / 星星彩虹圖案",
-        desc: "象徵關愛王國的精神。"
-    },
-    {
-        number: 22,
-        name: "Do-Your-Best Bear",
-        feature: "萊姆綠 / 風箏圖案",
-        desc: "鼓勵全力以赴。"
-    },
-    {
-        number: 23,
-        name: "Trick-or-Sweet Bear (2021)",
-        feature: "橘色 / 南瓜圖案",
-        desc: "萬聖節主題，調皮可愛。"
-    },
-    {
-        number: 24,
-        name: "Trick-or-Sweet Bear (2022)",
-        feature: "橘色 / 南瓜與帽子圖案",
-        desc: "充滿萬聖節氣氛。"
-    },
-    {
-        number: 25,
-        name: "Spooky Sparkle Bear",
-        feature: "彩虹漸層色 / 愛心圖案",
-        desc: "神秘又閃耀的萬聖節熊。"
-    },
-    {
-        number: 26,
-        name: "Sparkle Heart Bear",
-        feature: "奶白色 / 彩虹愛心圖案",
-        desc: "散發溫暖與希望。"
-    },
-    {
-        number: 27,
-        name: "Christmas Wishes Bear (2021)",
-        feature: "白色 / 聖誕圍巾圖案",
-        desc: "傳遞節日祝福。"
-    },
-    {
-        number: 28,
-        name: "Christmas Wishes Bear (2022)",
-        feature: "淺藍色 / 聖誕帽圍巾圖案",
-        desc: "帶來冬日歡樂。"
-    },
-    {
-        number: 29,
-        name: "Christmas Wishes Bear (2024)",
-        feature: "白色 / 馴鹿造型圖案",
-        desc: "充滿聖誕魔法。"
-    },
-    {
-        number: 30,
-        name: "Laugh-a-Lot Bear",
-        feature: "亮黃色 / 笑臉圖案",
-        desc: "喜歡歡笑與幽默。"
-    },
-    {
-        number: 31,
-        name: "Harmony Bear",
-        feature: "深藍紫色 / 彩虹愛心圖案",
-        desc: "促進和平與和諧。"
-    },
-    {
-        number: 32,
-        name: "Work of Heart Bear",
-        feature: "黃粉色 / 手作愛心圖案",
-        desc: "鼓勵創意與用心付出。"
-    },
-    {
-        number: 33,
-        name: "Perfect Panda",
-        feature: "黑白色 / 熊貓造型",
-        desc: "追求平衡與自信。"
-    },
-    {
-        number: 34,
-        name: "Dream Bright Bear",
-        feature: "淺紫藍色 / 夢幻星星彩虹圖案",
-        desc: "勇敢追逐夢想。"
-    },
-    {
-        number: 35,
-        name: "Sea Friend Bear",
-        feature: "天藍色 / 海洋圖案",
-        desc: "熱愛海洋與冒險。"
-    },
-    {
-        number: 36,
-        name: "Forest Friend Bear",
-        feature: "淺棕色 / 森林圖案",
-        desc: "守護自然與動物朋友。"
-    },
-    {
-        number: 37,
-        name: "Togetherness Bear",
-        feature: "奶白色 / 彩虹愛心圖案",
-        desc: "象徵團結與陪伴。"
-    },
-    {
-        number: 38,
-        name: "Secret Bear",
-        feature: "桃紅色 / 鎖頭愛心圖案",
-        desc: "守護朋友的重要秘密。"
-    },
-    {
-        number: 39,
-        name: "Calming Heart Bear",
-        feature: "淡粉色 / 愛心花朵圖案",
-        desc: "帶來平靜與療癒。"
-    },
-    {
-        number: 40,
-        name: "All My Heart Bear",
-        feature: "粉紅色 / 大愛心圖案",
-        desc: "全心全意表達愛。"
-    },
-    {
-        number: 41,
-        name: "I Care Bear",
-        feature: "薄荷綠 / 彩色愛心圖案",
-        desc: "提醒關心身邊的人。"
-    },
-    {
-        number: 42,
-        name: "Best Friend Bear",
-        feature: "紫色 / 彩虹愛心圖案",
-        desc: "珍惜最好的朋友。"
-    },
-    {
-        number: 43,
-        name: "Sweet Messages Bear",
-        feature: "淡粉色 / 粉紫愛心訊息圖案",
-        desc: "透過溫暖訊息傳遞愛與關懷，2026 情人節限定角色。用真誠的話語傳達愛意與祝福。"
-    },
-    {
-        number: 44,
-        name: "Share Bear Milkshake",
-        feature: "淡紫色 / 奶昔聖代圖案",
-        desc: "用甜蜜與分享帶給朋友幸福感。"
+        const data = [
+{ number: 1, name: "America Cares Bear", feature: "白色／星條旗愛心圖案", desc: "象徵關懷與團結。" },
+{ number: 2, name: "Perfect Panda", feature: "黑白色／流星造型", desc: "追求平衡與自信。" },
+{ number: 3, name: "Hopeful Heart Bear", feature: "粉色／彩虹愛心圖案", desc: "代表希望與正向力量。" },
+{ number: 4, name: "Love-a-Lot Bear", feature: "粉紅色／雙愛心圖案", desc: "象徵愛與關懷。" },
+{ number: 5, name: "Cheer Bear", feature: "桃粉色／彩虹圖案", desc: "樂觀開朗，鼓勵大家保持好心情。" },
+{ number: 6, name: "Secret Bear", feature: "玫紅色／愛心鎖頭圖案", desc: "守護朋友的重要秘密。" },
+{ number: 7, name: "Always There Bear", feature: "紅色／雙愛心圖案", desc: "代表陪伴與支持。" },
+{ number: 8, name: "Friend Bear", feature: "橘色／花朵圖案", desc: "重視友情，樂於結交朋友。" },
+{ number: 9, name: "Work of Heart Bear", feature: "彩色／調色盤圖案", desc: "鼓勵創意與用心付出。" },
+{ number: 10, name: "Sparkle Heart Bear", feature: "米黃色／彩色鑽石愛心圖案", desc: "用閃耀的愛與希望照亮身邊的人。" },
+
+{ number: 11, name: "Birthday Bear", feature: "奶油黃色／生日蛋糕圖案", desc: "喜歡慶祝特別的日子。" },
+{ number: 12, name: "Funshine Bear", feature: "黃色／太陽圖案", desc: "活力滿滿，喜歡帶來歡樂。" },
+{ number: 13, name: "Laugh-a-Lot Bear", feature: "亮黃色／笑臉星星圖案", desc: "喜歡歡笑與幽默。" },
+{ number: 14, name: "Do-Your-Best Bear", feature: "亮綠色／風箏圖案", desc: "鼓勵全力以赴。" },
+{ number: 15, name: "Good Luck Bear", feature: "綠色／幸運草圖案", desc: "帶來好運與祝福。" },
+
+{ number: 16, name: "Wish Bear", feature: "薄荷綠色／流星圖案", desc: "幫助大家實現願望與夢想。" },
+{ number: 17, name: "Grams Bear", feature: "灰色／花束圖案", desc: "充滿慈愛與智慧的奶奶熊。" },
+{ number: 18, name: "Grams Bear (New)", feature: "淺藍色／花束圖案", desc: "新版奶奶熊，溫柔關懷大家。" },
+{ number: 19, name: "Bedtime Bear", feature: "淺藍色／月亮星星圖案", desc: "陪伴大家安心入睡。" },
+{ number: 20, name: "Sea Friend Bear", feature: "天藍色／海洋圖案", desc: "熱愛海洋與冒險。" },
+
+{ number: 21, name: "Heart Song Bear", feature: "湖水藍／音符愛心圖案", desc: "用音樂傳遞愛與快樂。" },
+{ number: 22, name: "Grumpy Bear", feature: "藍色／雨雲圖案", desc: "外表愛抱怨，其實內心溫暖。" },
+{ number: 23, name: "Sweet Dreams Bear", feature: "淡紫色／月亮雲朵圖案", desc: "守護甜美夢境。" },
+{ number: 24, name: "Share Bear Milkshake", feature: "紫色／奶昔聖代圖案", desc: "用甜蜜與分享帶給朋友幸福感。" },
+{ number: 25, name: "Share Bear (New)", feature: "紫色／棒棒糖愛心圖案", desc: "喜歡分享與照顧朋友。" },
+
+{ number: 26, name: "Take Care Bear", feature: "粉紫色／星星愛心圖案", desc: "提醒大家照顧自己與他人。" },
+{ number: 27, name: "Harmony Bear", feature: "深紫色／彩虹花朵圖案", desc: "促進和平與和諧。" },
+{ number: 28, name: "Best Friend Bear", feature: "亮深紫色／愛心彩虹星星圖案", desc: "珍惜最好的朋友。" },
+{ number: 29, name: "Forest Friend Bear", feature: "淺棕色／森林圖案", desc: "守護自然與動物朋友。" },
+{ number: 30, name: "Tenderheart Bear", feature: "棕色／愛心圖案", desc: "關懷熊家族的領導者。" },
+
+{ number: 31, name: "True Heart Bear", feature: "白粉絢彩色／彩色星星圖案", desc: "代表真誠與善良。" },
+{ number: 32, name: "Togetherness Bear", feature: "絢彩色／彩虹愛心圖案", desc: "象徵團結與陪伴。" },
+{ number: 33, name: "Calming Heart Bear", feature: "粉黃絢彩色／蝴蝶圖案", desc: "帶來平靜與療癒。" },
+{ number: 34, name: "Care-a-Lot Bear", feature: "粉紫絢彩色／城堡圖案", desc: "象徵關愛王國的精神。" },
+{ number: 35, name: "Dream Bright Bear", feature: "藍紫絢彩色／彩虹愛心翅膀圖案", desc: "勇敢追逐夢想。" },
+
+{ number: 36, name: "I Care Bear", feature: "藍綠絢彩色／愛心彩虹地球圖案", desc: "提醒關心身邊的人。" },
+{ number: 37, name: "All My Heart Bear (2025)", feature: "粉紅色／大愛心圖案", desc: "全心全意表達愛，情人節限定款。" },
+{ number: 38, name: "Sweet Messages Bear (2026)", feature: "淡粉色／粉紫愛心訊息圖案", desc: "透過溫暖訊息傳遞愛與關懷。" },
+
+{ number: 39, name: "Trick-or-Sweet Bear (2021)", feature: "橘色／南瓜圖案", desc: "萬聖節主題，調皮可愛。" },
+{ number: 40, name: "Trick-or-Sweet Bear (2022–2023)", feature: "橘色／南瓜圖案", desc: "充滿萬聖節氣氛。" },
+{ number: 41, name: "Spooky Sparkle Bear (2024)", feature: "絢彩色／橘愛心圖案", desc: "神秘又閃耀的萬聖節熊。" },
+{ number: 42, name: "Cheer Bear Halloween (2025)", feature: "桃粉色／蝙蝠翅膀造型", desc: "樂觀開朗。" },
+{ number: 43, name: "Tenderheart Bear Halloween (2025)", feature: "橘色／骷髏造型", desc: "關懷熊家族的領導者。" },
+{ number: 44, name: "Good Luck Bear Halloween (2025)", feature: "綠色／科學怪人造型", desc: "帶來好運與祝福。" },
+
+{ number: 45, name: "Christmas Wishes Bear (2021)", feature: "白色／聖誕樹圖案", desc: "聖誕圍巾造型。" },
+{ number: 46, name: "Christmas Wishes Bear (2022)", feature: "淺藍色／聖誕樹圖案", desc: "帶來冬日歡樂。" },
+{ number: 47, name: "Christmas Wishes Bear (2024)", feature: "白色／聖誕樹圖案", desc: "馴鹿造型。" },
+{ number: 48, name: "Christmas Wishes Bear (2025)", feature: "淺藍色／聖誕樹圖案", desc: "聖誕樹造型。" },
+
+{ number: 49, name: "Grumpy Bear (Becky’s Birthday)", feature: "淡藍色／翅膀造型", desc: "生日限定。" },
+{ number: 50, name: "Cheer Bear (Becky’s Birthday)", feature: "粉色／生日帽翅膀造型", desc: "生日限定。" }
+];
     }
 ];
 
