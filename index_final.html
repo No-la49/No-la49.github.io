@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care Bears Thailand - 收藏圖鑑</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #FFF0F8 0%, #F0F4FF 50%, #F8F0FF 100%); min-height: 100vh; }
+.container { max-width: 1400px; margin: 0 auto; padding: 30px 20px; }
+.header { text-align: center; margin-bottom: 50px; }
+.header h1 { font-size: 42px; background: linear-gradient(135deg, #FFB3D9 0%, #A8D8EA 50%, #AA96DA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; font-weight: bold; }
+.header-subtitle { color: #A89DB8; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.update-badge { display: inline-block; margin-top: 12px; padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.75); color: #C794B8; font-size: 13px; font-weight: 700; box-shadow: 0 6px 18px rgba(200, 150, 200, 0.14); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 25px rgba(200, 150, 200, 0.1); transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255, 200, 230, 0.3); }
+.card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(200, 150, 200, 0.2); }
+.card-image-container { width: 100%; height: 260px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-image { width: 100%; height: 100%; object-fit: contain; display: block; }
+.card-content { padding: 15px; text-align: center; }
+.card-number { color: #D4B8D0; font-size: 12px; font-weight: bold; margin-bottom: 5px; }
+.card-title { font-size: 18px; color: #8B7BA8; font-weight: bold; margin-bottom: 5px; }
+.card-feature { color: #C794B8; font-size: 13px; font-weight: 600; }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); overflow-y: auto; }
+.modal-content { background: #fff; margin: 5% auto; padding: 20px; border-radius: 20px; width: 90%; max-width: 600px; position: relative; text-align: center; }
+.modal-image { width: 100%; border-radius: 15px; margin-bottom: 15px; max-height: 70vh; object-fit: contain; }
+.close { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #aaa; }
+@media (max-width: 768px) { .header h1 { font-size: 32px; } .gallery { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; } .card-image-container { height: 200px; } }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🧸 Care Bears Thailand</h1>
+        <p class="header-subtitle">50 款收藏圖鑑｜裁切優化版</p>
+        <span class="update-badge">更新日期 2026-06-22</span>
+    </div>
+    <div class="gallery" id="gallery"></div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div id="modalNumber" style="color:#D4B8D0; font-weight:bold;"></div>
+        <div id="modalTitle" style="font-size:24px; color:#8B7BA8; font-weight:bold; margin:10px 0;"></div>
+        <div id="modalFeature" style="color:#C794B8; font-weight:600; margin-bottom:10px;"></div>
+        <div id="modalDesc" style="color:#A89DB8; line-height:1.6;"></div>
+    </div>
+</div>
+<script>
+const bearData = [
+    { n: 1,  id: "IMG_9505.jpeg", name: "Hopeful Heart Bear", color: "粉色", feature: "彩虹愛心圖案", desc: "代表希望與正向力量。" },
+    { n: 2,  id: "IMG_9506.jpeg", name: "Cheer Bear", color: "桃粉色", feature: "彩虹圖案", desc: "樂觀開朗，鼓勵大家保持好心情。" },
+    { n: 3,  id: "IMG_9507.jpeg", name: "Love-a-Lot Bear", color: "粉紅色", feature: "雙愛心圖案", desc: "象徵愛與關懷。" },
+    { n: 4,  id: "IMG_9508.jpeg", name: "Always There Bear", color: "紅色", feature: "雙愛心圖案", desc: "代表陪伴與支持。" },
+    { n: 5,  id: "IMG_9509.jpeg", name: "Secret Bear", color: "玫紅色", feature: "愛心鎖頭圖案", desc: "守護朋友的重要秘密。" },
+    { n: 6,  id: "IMG_9510.jpeg", name: "Friend Bear", color: "橘色", feature: "花朵圖案", desc: "重視友情，樂於結交朋友。" },
+    { n: 7,  id: "IMG_9511.jpeg", name: "Work of Heart Bear", color: "彩色", feature: "調色盤圖案", desc: "鼓勵創意與用心付出。" },
+    { n: 8,  id: "IMG_9512.jpeg", name: "Birthday Bear", color: "奶油黃色", feature: "生日蛋糕圖案", desc: "喜歡慶祝特別的日子。" },
+    { n: 9,  id: "IMG_9513.jpeg", name: "Funshine Bear", color: "黃色", feature: "太陽圖案", desc: "活力滿滿，喜歡帶來歡樂。" },
+    { n: 10, id: "IMG_9514.jpeg", name: "Laugh-a-Lot Bear", color: "亮黃色", feature: "笑臉星星圖案", desc: "喜歡歡笑與幽默。" },
+    { n: 11, id: "IMG_9515.jpeg", name: "Sparkle Heart Bear", color: "米黃色", feature: "彩色鑽石愛心圖案", desc: "用閃耀的愛照亮身邊的人。" },
+    { n: 12, id: "IMG_9516.jpeg", name: "Harmony Bear", color: "深藍色", feature: "彩虹花朵圖案", desc: "促進和平與和諧。" },
+    { n: 13, id: "IMG_9517.jpeg", name: "Do-Your-Best Bear", color: "亮綠色", feature: "風箏圖案", desc: "鼓勵全力以赴。" },
+    { n: 14, id: "IMG_9518.jpeg", name: "Good Luck Bear", color: "綠色", feature: "幸運草圖案", desc: "帶來好運與祝福。" },
+    { n: 15, id: "IMG_9519.jpeg", name: "Wish Bear", color: "薄荷綠色", feature: "流星圖案", desc: "幫助大家實現願望與夢夢。" },
+    { n: 16, id: "IMG_9520.jpeg", name: "Grams Bear", color: "灰色", feature: "花束圖案", desc: "充滿慈愛與智慧的奶奶熊。" },
+    { n: 17, id: "IMG_9521.jpeg", name: "Grams Bear (New)", color: "淺藍色", feature: "花束圖案", desc: "新版奶奶熊，溫柔關懷大家。" },
+    { n: 18, id: "IMG_9522.jpeg", name: "Bedtime Bear", color: "淺藍色", feature: "月亮星星圖案", desc: "陪伴大家安心入睡。" },
+    { n: 19, id: "IMG_9523.jpeg", name: "Heart Song Bear", color: "湖水藍", feature: "音符愛心圖案", desc: "用音樂傳遞愛與快樂。" },
+    { n: 20, id: "IMG_9524.jpeg", name: "Grumpy Bear", color: "藍色", feature: "雨雲圖案", desc: "外表愛抱怨，其實內心溫暖。" },
+    { n: 21, id: "IMG_9525.jpeg", name: "Sweet Dreams Bear", color: "淡紫色", feature: "月亮雲朵圖案", desc: "守護甜美夢境。" },
+    { n: 22, id: "IMG_9526.jpeg", name: "Share Bear Milkshake", color: "紫色", feature: "奶昔聖代圖案", desc: "用甜蜜分享帶給朋友幸福。" },
+    { n: 23, id: "IMG_9527.jpeg", name: "Share Bear (New)", color: "紫色", feature: "棒棒糖愛心圖案", desc: "喜歡分享與照顧朋友。" },
+    { n: 24, id: "IMG_9528.jpeg", name: "Take Care Bear", color: "粉紫色", feature: "星星愛心圖案", desc: "提醒大家照顧自己與他人。" },
+    { n: 25, id: "IMG_9529.jpeg", name: "Best Friend Bear", color: "深紫色", feature: "愛心彩虹星星圖案", desc: "珍惜最好的朋友。" },
+    { n: 26, id: "IMG_9530.jpeg", name: "True Heart Bear", color: "白粉絢彩色", feature: "彩色星星圖案", desc: "代表真誠與善良。" },
+    { n: 27, id: "IMG_9531.jpeg", name: "Sea Friend Bear", color: "天藍色", feature: "海洋圖案", desc: "熱愛海洋與冒險。" },
+    { n: 28, id: "IMG_9532.jpeg", name: "Forest Friend Bear", color: "淺棕色", feature: "森林圖案", desc: "守護自然與動物朋友。" },
+    { n: 29, id: "IMG_9534.jpeg", name: "Tenderheart Bear", color: "棕色", feature: "愛心圖案", desc: "關懷熊家族的領導者。" },
+    { n: 30, id: "IMG_9535.jpeg", name: "Togetherness Bear", color: "絢彩色", feature: "彩虹愛心圖案", desc: "象徵團結與陪伴。" },
+    { n: 31, id: "IMG_9536.jpeg", name: "Calming Heart Bear", color: "粉黃絢彩色", feature: "蝴蝶圖案", desc: "帶來平靜與療癒。" },
+    { n: 32, id: "IMG_9537.jpeg", name: "Care-a-Lot Bear", color: "粉紫絢彩色", feature: "城堡圖案", desc: "象徵關愛王國的精神。" },
+    { n: 33, id: "IMG_9539.jpeg", name: "Dream Bright Bear", color: "藍紫絢彩色", feature: "彩虹愛心翅膀圖案", desc: "勇敢追逐夢想。" },
+    { n: 34, id: "IMG_9540.jpeg", name: "I Care Bear", color: "藍綠絢彩色", feature: "愛心彩虹地球圖案", desc: "提醒關心身邊的人。" },
+    { n: 35, id: "IMG_9541.jpeg", name: "All My Heart Bear", color: "粉紅色", feature: "大愛心圖案", desc: "全心全意表達愛。" },
+    { n: 36, id: "IMG_9543.jpeg", name: "Sweet Messages Bear", color: "淡粉色", feature: "愛心訊息圖案", desc: "透過溫暖訊息傳遞愛。" },
+    { n: 37, id: "IMG_9544.jpeg", name: "Trick-or-Sweet Bear", color: "橘色", feature: "南瓜圖案", desc: "萬聖節主題，調皮可愛。" },
+    { n: 38, id: "IMG_9545.jpeg", name: "Spooky Sparkle Bear", color: "絢彩色", feature: "橘愛心圖案", desc: "神秘又閃耀的萬聖節熊。" },
+    { n: 39, id: "IMG_9546.jpeg", name: "America Cares Bear", color: "白色", feature: "星條旗愛心圖案", desc: "象徵關懷與團結。" },
+    { n: 40, id: "IMG_9547.jpeg", name: "Perfect Panda", color: "黑白色", feature: "流星造型", desc: "追求平衡與自信。" },
+    { n: 41, id: "IMG_9548.jpeg", name: "Cheer Bear Halloween", color: "桃粉色", feature: "蝙蝠翅膀造型", desc: "萬聖節限定款。" },
+    { n: 42, id: "IMG_9549.jpeg", name: "Tenderheart Bear Halloween", color: "橘色", feature: "骷髏裝造型", desc: "萬聖節限定款。" },
+    { n: 43, id: "IMG_9550.jpeg", name: "Good Luck Bear Halloween", color: "綠色", feature: "科學怪人造型", desc: "萬聖節限定款。" },
+    { n: 44, id: "IMG_9551.jpeg", name: "Christmas Wishes Bear (W)", color: "白色", feature: "聖誕樹圖案", desc: "聖誕節限定款。" },
+    { n: 45, id: "IMG_9552.jpeg", name: "Christmas Wishes Bear (B)", color: "淺藍色", feature: "聖誕樹圖案", desc: "聖誕節限定款。" },
+    { n: 46, id: "IMG_9554.jpeg", name: "Christmas Wishes Bear (Reindeer)", color: "白色", feature: "馴鹿造型", desc: "聖誕節限定款。" },
+    { n: 47, id: "IMG_9555.jpeg", name: "Christmas Wishes Bear (Tree)", color: "淺藍色", feature: "聖誕樹造型", desc: "聖誕節限定款。" },
+    { n: 48, id: "IMG_9562.jpeg", name: "Grumpy Bear (Becky)", color: "淡藍色", feature: "翅膀造型", desc: "Becky 生日限定。" },
+    { n: 49, id: "IMG_9563.jpeg", name: "Cheer Bear (Becky)", color: "粉色", feature: "生日帽翅膀造型", desc: "Becky 生日限定。" },
+    { n: 50, id: "IMG_9565.jpeg", name: "Special Edition Bear", color: "金色/白色", feature: "特別圖案", desc: "稀有收藏款。" }
+];
+
+const gallery = document.getElementById('gallery');
+bearData.forEach((bear, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.onclick = () => openModal(index);
+    card.innerHTML = `
+        <div class="card-image-container">
+            <img class="card-image" src="${bear.id}" alt="${bear.name}">
+        </div>
+        <div class="card-content">
+            <div class="card-number">#${bear.n}</div>
+            <div class="card-title">${bear.name}</div>
+            <div class="card-feature">${bear.color} / ${bear.feature}</div>
+        </div>
+    `;
+    gallery.appendChild(card);
+});
+
+function openModal(index) {
+    const bear = bearData[index];
+    document.getElementById("modalImage").src = bear.id;
+    document.getElementById("modalNumber").textContent = `#${bear.n}`;
+    document.getElementById("modalTitle").textContent = bear.name;
+    document.getElementById("modalFeature").textContent = bear.color + " / " + bear.feature;
+    document.getElementById("modalDesc").textContent = bear.desc;
+    document.getElementById("modal").style.display = "block";
+}
+function closeModal() { document.getElementById("modal").style.display = "none"; }
+window.onclick = (e) => { if(e.target == document.getElementById("modal")) closeModal(); }
+</script>
+</body>
+</html>
